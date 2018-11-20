@@ -1,0 +1,43 @@
+heroes:
+  - id: 13
+    name: Junkrat
+  - id: 14
+    name: Mei
+  - id: 15
+    name: Reaper
+  - id: 16
+    name: Reinhardt
+  - id: 17
+    name: Widowmaker
+  - id: 18
+    name: Mercy
+  - id: 19
+    name: Lucio
+  - id: 20
+    name: Symmetra
+  - id: 21
+    name: Zenyatta
+  - id: 22
+    name: Hanzo
+  - id: 23
+    name: Bastion
+  - id: 24
+    name: Torbjorn
+  - id: 25
+    name: Tracer
+  - id: 26
+    name: Soldier 76
+  - id: 27
+    name: Roadhog
+  - id: 28
+    name: D. Va
+  - id: 29
+    name: Zarya
+  - id: 30
+    name: Genji
+  - id: 31
+    name: McCree
+  - id: 32
+    name: Pharah
+  - id: 33
+    name: Winston
