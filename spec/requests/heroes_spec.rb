@@ -30,7 +30,7 @@ describe "GET /:heroes" do
     }.to_json
   end
 
-  it 'retrieves a list of hero names' do
+  xit 'retrieves a list of hero names' do
     get '/heroes'
 
     expect(response).to be_success

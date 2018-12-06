@@ -5,6 +5,7 @@ describe "retrieving a hero's information" do
   let(:url) do
     "http://localhost:3000/heroes/#{hero_id}"
   end
+
   let(:hero_spells) do
     [
         "spell_1" => {
@@ -40,15 +41,14 @@ describe "retrieving a hero's information" do
     ]
   end
 
-  it 'successfully retrieves a hero' do
+  xit 'the happy path' do
     response = HTTParty.get url
 
     expect(response).to be_success
     expect(response.content_type).to eq 'application/json'
-    expect(response.keys).to contain_exactly 'id', 'name', 'spells'
+    expect(response.keys).to contain_exactly 'data', 'included'
 
-    expect(response['id']).to eq hero_id
-    expect(response['name']).to eq hero_name
-    expect(response['spells']).to eq hero_spells
+    expect(response['data']).to_not be_empty
+    expect(response['included']).to_not be_empty
   end
 end

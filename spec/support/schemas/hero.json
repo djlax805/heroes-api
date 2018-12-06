@@ -1,0 +1,148 @@
+{
+    "data": {
+        "type": "hero",
+        "attributes": {
+            "name": "FakeHero"
+        },
+        "relationships": {
+            "spells": {
+                "data": [
+                    {
+                        "id": "91",
+                        "type": "spell"
+                    },
+                    {
+                        "id": "92",
+                        "type": "spell"
+                    },
+                    {
+                        "id": "93",
+                        "type": "spell"
+                    },
+                    {
+                        "id": "94",
+                        "type": "spell"
+                    },
+                    {
+                        "id": "95",
+                        "type": "spell"
+                    },
+                    {
+                        "id": "96",
+                        "type": "spell"
+                    }
+                ]
+            }
+        }
+    },
+    "included": [
+        {
+            "id": "cat",
+            "type": "spell",
+            "attributes": {
+                "name": "fake_spell",
+                "spell_type": "basic",
+                "cooldown": 3,
+                "description": "fake - spell: description"
+            },
+            "relationships": {
+                "hero": {
+                    "data": {
+                        "id": "26",
+                        "type": "hero"
+                    }
+                }
+            }
+        },
+        {
+            "id": "92",
+            "type": "spell",
+            "attributes": {
+                "name": "fake_spell",
+                "spell_type": "basic",
+                "cooldown": 3,
+                "description": "fake - spell: description"
+            },
+            "relationships": {
+                "hero": {
+                    "data": {
+                        "id": "26",
+                        "type": "hero"
+                    }
+                }
+            }
+        },
+        {
+            "id": "93",
+            "type": "spell",
+            "attributes": {
+                "name": "fake_spell",
+                "spell_type": "basic",
+                "cooldown": 3,
+                "description": "fake - spell: description"
+            },
+            "relationships": {
+                "hero": {
+                    "data": {
+                        "id": "26",
+                        "type": "hero"
+                    }
+                }
+            }
+        },
+        {
+            "id": "94",
+            "type": "spell",
+            "attributes": {
+                "name": "fake_spell",
+                "spell_type": "basic",
+                "cooldown": 3,
+                "description": "fake - spell: description"
+            },
+            "relationships": {
+                "hero": {
+                    "data": {
+                        "id": "26",
+                        "type": "hero"
+                    }
+                }
+            }
+        },
+        {
+            "id": "95",
+            "type": "spell",
+            "attributes": {
+                "name": "fake_spell",
+                "spell_type": "basic",
+                "cooldown": 3,
+                "description": "fake - spell: description"
+            },
+            "relationships": {
+                "hero": {
+                    "data": {
+                        "id": "26",
+                        "type": "hero"
+                    }
+                }
+            }
+        },
+        {
+            "id": "96",
+            "type": "spell",
+            "attributes": {
+                "name": "fake_spell",
+                "spell_type": "ultimate",
+                "cooldown": 0,
+                "description": "fake - spell: description"
+            },
+            "relationships": {
+                "hero": {
+                    "data": {
+                        "id": "26",
+                        "type": "hero"
+                    }
+                }
+            }
+        }
+    ]
+}

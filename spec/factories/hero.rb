@@ -1,13 +1,6 @@
 FactoryGirl.define do
-  factory :spell do
-    name        'fake_spell'
-    spell_type  'basic'
-    cooldown    '3'
-    description 'fake - spell: description'
-  end
-
   factory :hero do
-    name SecureRandom.uuid
+    name 'FakeHero'
 
     after(:create) do |hero, eval|
       create_list(:spell, 5, hero: hero)

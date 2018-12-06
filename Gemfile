@@ -23,12 +23,13 @@ gem 'puma', '~> 3.0'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+  gem 'fast_jsonapi'
   gem 'rspec-rails'
-  gem 'rspec-junklet'
   gem 'rspec-its'
   gem 'factory_girl_rails'
   gem 'httparty'
   gem 'pry'
+  gem 'json_spec'
 end
 
 group :development do

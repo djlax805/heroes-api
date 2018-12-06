@@ -12,20 +12,20 @@ describe "retrieving a list of heroes" do
     @response = HTTParty.get listing_url
   end
 
-  it 'responds with 200' do
+  xit 'responds with 200' do
     expect(@response.code).to eq 200
   end
 
-  it 'has a content-type of JSON' do
+  xit 'has a content-type of JSON' do
     content_type = @response.content_type
     expect(content_type).to eq "application/json"
   end
 
-  it 'successfully retrieves a list of hero names' do
+  xit 'successfully retrieves a list of hero names' do
     expect(@response).to be_success
   end
 
-  it 'lists the serialized heroes correctly' do
+  xit 'lists the serialized heroes correctly' do
     expect(@response.body).to eq expected_hero_list
   end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160915214347) do
+ActiveRecord::Schema.define(version: 20181116194846) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,4 +21,14 @@ ActiveRecord::Schema.define(version: 20160915214347) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "spells", force: :cascade do |t|
+    t.string  "name"
+    t.string  "spell_type"
+    t.integer "cooldown"
+    t.string  "description"
+    t.integer "hero_id"
+    t.index ["hero_id"], name: "index_spells_on_hero_id", using: :btree
+  end
+
+  add_foreign_key "spells", "heros"
 end

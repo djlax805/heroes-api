@@ -8,7 +8,10 @@ class HeroesController < ApplicationController
 
   def show
     # TODO - https://trello.com/c/TVq0AmKK
-    render json: hero
+    options = {}
+    options[:include] = [:spells]
+
+    render json: HeroSerializer.new(hero, options).serializable_hash
   end
    
   private
