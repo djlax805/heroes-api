@@ -7,7 +7,6 @@ class HeroesController < ApplicationController
   end
 
   def show
-    # TODO - https://trello.com/c/TVq0AmKK
     options = {}
     options[:include] = [:spells]
 

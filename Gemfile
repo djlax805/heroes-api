@@ -30,6 +30,8 @@ group :development, :test do
   gem 'httparty'
   gem 'pry'
   gem 'json_spec'
+  gem 'rspec_api_documentation'
+  gem 'raddocs'
 end
 
 group :development do
