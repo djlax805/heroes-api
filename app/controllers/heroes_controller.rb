@@ -1,9 +1,10 @@
 class HeroesController < ApplicationController
   def index
+    binding.pry
     heroes = Hero.select(:id, :name)
 
     # TODO - https://trello.com/c/9I2pVgmr
-    render json: { 'heroes' => heroes.order(:id) }
+    render json: { 'data' => heroes.order(:id) }
   end
 
   def show
@@ -16,7 +17,7 @@ class HeroesController < ApplicationController
   private
  
   def hero
-    @hero ||= Hero.find(params[:id])
+    @hero ||= Hero.find params[:id]
   end
 
   def hero_params
