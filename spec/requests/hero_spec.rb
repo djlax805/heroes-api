@@ -7,17 +7,54 @@ describe "GET /:heroes/:id" do
   end
 
   context 'with a valid hero id' do
-   let(:hero) { create :hero }
-   let(:hero_schema) { File.read('spec/support/schemas/hero.json') }
+    let(:hero) { create :hero }
+    let(:hero_attributes) do
+      {
+          'attributes' => {
+              'name' => hero.name
+          }
+      }
+    end
 
-    it 'successfully retrieves hero data' do
-      expect(response).to be_success
+    # TODO this is kind of ridiculous
+    # there must be a cleaner way
+    let(:hero_relationships) do
+      {
+          'relationships' => {
+              'spells' => {
+                  'data' =>
+                      hero.spells.map do |spell|
+                        {
+                            'id' => spell.id.to_s,
+                            'type' => 'spell'
+                        }
+                      end
+              }
+          }
+      }
+    end
+
+    it 'succeeds' do
       expect(response.code).to eq '200'
+    end
 
-      expect(response.body).to have_json_path 'data'
+    describe 'data' do
+      let(:hero_data)   { JSON.parse(response.body)['data'] }
 
-      data = JSON.parse(response.body)['data']
-      expect(data['type']).to eq 'hero'
+      it 'has the correct hero' do
+        expect(response.body).to have_json_path 'data'
+
+        expect(hero_data['id']).to eq hero.id.to_s
+        expect(hero_data['type']).to eq 'hero'
+      end
+
+      it 'has the hero\'s attributes' do
+        expect(hero_data).to include hero_attributes
+      end
+
+      it 'has the hero\'s relationships' do
+        expect(hero_data).to include hero_relationships
+      end
     end
 
     it 'includes spells associated with the hero' do
