@@ -34,12 +34,14 @@ describe "GET /:heroes/:id" do
       }
     end
 
+    let(:parsed_body) { JSON.parse response.body }
+
     it 'succeeds' do
       expect(response.code).to eq '200'
     end
 
     describe 'data' do
-      let(:hero_data)   { JSON.parse(response.body)['data'] }
+      let(:hero_data)   { parsed_body.fetch 'data' }
 
       it 'has the correct hero' do
         expect(response.body).to have_json_path 'data'
@@ -48,7 +50,7 @@ describe "GET /:heroes/:id" do
         expect(hero_data['type']).to eq 'hero'
       end
 
-      it 'has the hero\'s attributes' do
+      it 'has the hero\'s name' do
         expect(hero_data).to include hero_attributes
       end
 
@@ -57,17 +59,16 @@ describe "GET /:heroes/:id" do
       end
     end
 
-    it 'includes spells associated with the hero' do
-      expect(response).to be_success
-      expect(response.code).to eq '200'
+    describe 'includes' do
+      let(:included_data) { parsed_body.fetch 'included' }
 
-      expect(response.body).to have_json_path 'included'
+      it 'has spells associated with the hero' do
+        expect(response.body).to have_json_path 'included'
 
-      included = JSON.parse(response.body)['included']
-
-      expect(included).to_not be_empty
-      expect(included.size).to eq 6
-      expect(included.map { |s| s['type'] }).to all(eq 'spell')
+        expect(included_data).to_not be_empty
+        expect(included_data.size).to eq hero.spells.size
+        expect(included_data.map { |s| s['type'] }).to all(eq 'spell')
+      end
     end
   end
 

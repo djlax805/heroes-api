@@ -1,33 +1,34 @@
-heroes = [
-    "Junkrat",
-    "Mei",
-    "Reaper",
-    "Rheinhardt",
-    "Widowmaker",
-    "Mercy",
-    "Lucio",
-    "Symmetra",
-    "Zenyatta",
-    "Hanzo",
-    "Bastion",
-    "Torbjorn",
-    "Tracer",
-    "Soldier 76",
-    "Roadhog",
-    "D. Va",
-    "Zarya",
-    "Genji",
-    "McCree",
-    "Pharah",
-    "Winston"
-]
-
-heroes.each do |hero|
-  h = Hero.find_or_initialize_by(name: hero)
-  h.name = hero
-  h.save!
-end
+# heroes = [
+#     "Junkrat",
+#     "Mei",
+#     "Reaper",
+#     "Rheinhardt",
+#     "Widowmaker",
+#     "Mercy",
+#     "Lucio",
+#     "Symmetra",
+#     "Zenyatta",
+#     "Hanzo",
+#     "Bastion",
+#     "Torbjorn",
+#     "Tracer",
+#     "Soldier 76",
+#     "Roadhog",
+#     "D. Va",
+#     "Zarya",
+#     "Genji",
+#     "McCree",
+#     "Pharah",
+#     "Winston"
+# ]
 #
+# heroes.each do |hero|
+#   h = Hero.find_or_initialize_by(name: hero)
+#   h.name = hero
+#   h.save!
+# end
+#
+# #
 # junkrat_spells = [
 #     {
 #         'name'        => 'Frag Launcher',

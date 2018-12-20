@@ -1,9 +1,6 @@
 class HeroesController < ApplicationController
   def index
-    heroes = Hero.select(:id, :name)
-
-    # TODO - https://trello.com/c/9I2pVgmr
-    render json: { 'heroes' => heroes.order(:id) }
+    render json: HeroesSerializer.new(heroes).serializable_hash
   end
 
   def show
@@ -12,11 +9,15 @@ class HeroesController < ApplicationController
 
     render json: HeroSerializer.new(hero, options).serializable_hash
   end
-   
+
   private
- 
+
   def hero
     @hero ||= Hero.find(params[:id])
+  end
+
+  def heroes
+    @heroes ||= Hero.select(:id, :name)
   end
 
   def hero_params
